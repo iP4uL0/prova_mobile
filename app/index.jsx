@@ -5,71 +5,109 @@ import {
     Pressable,
     StyleSheet } from "react-native";
 
+import styled from "styled-components/native";
+
 export default function App(){
     return(
-    <View style={estilo.tela}>
-        <Text style={estilo.titulo}>Entrar</Text>
-        <View style={estilo.container_campos_texto}>
-            <TextInput 
+    <Tela>
+        <Titulo>Entrar</Titulo>
+        <ContainerCampoTexto>
+            <CampoTexto 
                 placeholder="Digite seu e-mail..." 
                 placeholderTextColor={'#6C757D'}
-                style={estilo.campo_texto}
             />
-            <TextInput 
+            <CampoTexto 
                 placeholder="Digite sua senha..." 
                 placeholderTextColor={'#6C757D'}
-                style={estilo.campo_texto}
             />
-        </View>
-        <View style={estilo.container_botoes}>
-            <Pressable style={estilo.botao}>
-                <Text style={estilo.texto_botao}>Entrar</Text>
-            </Pressable>
-            <Text style={estilo.links}>Cadastre-se</Text>
-            <Text style={estilo.links}>Esqueci a senha</Text>
-        </View>
-    </View>)
+        </ContainerCampoTexto>
+        <ContainerBotoes>
+            <Botao>
+                <TextoBotao>Entrar</TextoBotao>
+            </Botao>
+            <Links>Cadastre-se</Links>
+            <Links>Esqueci a senha</Links>
+        </ContainerBotoes>
+    </Tela>)
 }
 
-const estilo = StyleSheet.create({
-    tela: {
-        flex: 1,
-        backgroundColor: '#33415C',
-        padding: 26
-    },
-    titulo: {
-        fontSize: 56,
-        fontWeight: 'bold',
-        color: '#ffff',
-        marginTop: 80,
-        marginBottom: 80
-    },
-    container_campos_texto: {
-        gap: 25
-    },
-    campo_texto: {
-        backgroundColor: '#fff',
-        fontSize: 18,
-        textAlignVertical: 'center',
-        paddingHorizontal: 16,
-        padding: 20,
-    },
-    container_botoes: {
-        marginTop: 65,
-        gap: 20
-    },
-    botao: {
-        backgroundColor: '#fff',
-        padding: 20
-    },
-    texto_botao : {
-        textAlign: 'center',
-        fontSize: 24,
-        fontWeight: 'bold'
-    },
-    links: {
-        textAlign: 'center',
-        color: '#fff',
-        fontSize: 16
-    }
-})
+const Tela = styled.View`
+    flex: 1;
+    background-color: #33415C;
+    padding: 26px;
+`
+
+const Titulo = styled.Text`
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    margin: 80px 0px
+`
+const ContainerCampoTexto = styled.View`
+    gap: 25px;
+`
+const CampoTexto = styled.TextInput`
+    background-color: #fff;
+    font-size: 18px;
+    padding: 20px;
+`
+const ContainerBotoes = styled.View`
+    margin-top: 65px;
+    gap: 20px;
+`
+const Botao = styled.Pressable`
+    background-color: #fff;
+    padding: 20px;
+`
+const TextoBotao = styled.Text`
+    text-align: center;
+    font-size: 24;
+    font-weight: bold;
+`
+const Links = styled.Text`
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+`
+// const estilo = StyleSheet.create({
+//     tela: {
+//         flex: 1,
+//         backgroundColor: '#33415C',
+//         padding: 26
+//     },
+//     titulo: {
+//         fontSize: 56,
+//         fontWeight: 'bold',
+//         color: '#ffff',
+//         marginTop: 80,
+//         marginBottom: 80
+//     },
+//     container_campos_texto: {
+//         gap: 25
+//     },
+//     campo_texto: {
+//         backgroundColor: '#fff',
+//         fontSize: 18,
+//         textAlignVertical: 'center',
+//         paddingHorizontal: 16,
+//         padding: 20,
+//     },
+//     container_botoes: {
+//         marginTop: 65,
+//         gap: 20
+//     },
+//     botao: {
+//         backgroundColor: '#fff',
+//         padding: 20
+//     },
+//     texto_botao : {
+//         textAlign: 'center',
+//         fontSize: 24,
+//         fontWeight: 'bold'
+//     },
+//     links: {
+//         textAlign: 'center',
+//         color: '#fff',
+//         fontSize: 16
+//     }
+// })
