@@ -6,11 +6,19 @@ import {
     StyleSheet } from "react-native";
 
 import styled from "styled-components/native";
+import Title from "../components/Titulo/titulo";
 
 export default function App(){
     return(
-    <Tela>
-        <Titulo>Entrar</Titulo>
+     <Tela>
+        <Title 
+            texto={"Entrar"} 
+            flag={true}
+        />
+        <Title 
+            texto={"Bem vindo ao app"} 
+            flag={false}
+        />
         <ContainerCampoTexto>
             <CampoTexto 
                 placeholder="Digite seu e-mail..." 
@@ -37,12 +45,6 @@ const Tela = styled.View`
     padding: 26px;
 `
 
-const Titulo = styled.Text`
-    font-size: 50px;
-    font-weight: bold;
-    color: #fff;
-    margin: 80px 0px
-`
 const ContainerCampoTexto = styled.View`
     gap: 25px;
 `
