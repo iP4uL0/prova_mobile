@@ -1,14 +1,7 @@
 import styled from "styled-components/native";
 import Title from "../components/Titulo/titulo";
-import { useState } from "react";
 
 export default function App(){
-
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
-
-    
-
     return(
      <Tela>
         <Title 
