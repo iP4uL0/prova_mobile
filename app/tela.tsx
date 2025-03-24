@@ -1,14 +1,14 @@
-import { 
-    View, 
-    Text, 
-    TextInput,
-    Pressable,
-    StyleSheet } from "react-native";
-
 import styled from "styled-components/native";
 import Title from "../components/Titulo/titulo";
+import { useState } from "react";
 
 export default function App(){
+
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
+
+    
+
     return(
      <Tela>
         <Title 
@@ -63,7 +63,7 @@ const Botao = styled.Pressable`
 `
 const TextoBotao = styled.Text`
     text-align: center;
-    font-size: 24;
+    font-size: 24px;
     font-weight: bold;
 `
 const Links = styled.Text`
@@ -71,45 +71,3 @@ const Links = styled.Text`
     color: #fff;
     font-size: 16px;
 `
-// const estilo = StyleSheet.create({
-//     tela: {
-//         flex: 1,
-//         backgroundColor: '#33415C',
-//         padding: 26
-//     },
-//     titulo: {
-//         fontSize: 56,
-//         fontWeight: 'bold',
-//         color: '#ffff',
-//         marginTop: 80,
-//         marginBottom: 80
-//     },
-//     container_campos_texto: {
-//         gap: 25
-//     },
-//     campo_texto: {
-//         backgroundColor: '#fff',
-//         fontSize: 18,
-//         textAlignVertical: 'center',
-//         paddingHorizontal: 16,
-//         padding: 20,
-//     },
-//     container_botoes: {
-//         marginTop: 65,
-//         gap: 20
-//     },
-//     botao: {
-//         backgroundColor: '#fff',
-//         padding: 20
-//     },
-//     texto_botao : {
-//         textAlign: 'center',
-//         fontSize: 24,
-//         fontWeight: 'bold'
-//     },
-//     links: {
-//         textAlign: 'center',
-//         color: '#fff',
-//         fontSize: 16
-//     }
-// })
