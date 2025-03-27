@@ -1,10 +1,16 @@
 import styled from "styled-components/native";
 import Title from "../components/Titulo/titulo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { TextInputProps } from "react-native";
+import CampoTexto from "@/components/Input/input";
 export default function App(){
 
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
+
+    useEffect(()=>{
+        console.log(email)
+    },[email])
 
     return(
      <Tela>
@@ -18,12 +24,12 @@ export default function App(){
         />
         <ContainerCampoTexto>
             <CampoTexto 
-                placeholder="Digite seu e-mail..." 
-                placeholderTextColor={'#6C757D'}
+                hasError={true}
+                placeholder="Digite seu email..."
             />
             <CampoTexto 
-                placeholder="Digite sua senha..." 
-                placeholderTextColor={'#6C757D'}
+                hasError={false}
+                placeholder="Digite sua senha..."
             />
         </ContainerCampoTexto>
         <ContainerBotoes>
@@ -45,11 +51,7 @@ const Tela = styled.View`
 const ContainerCampoTexto = styled.View`
     gap: 25px;
 `
-const CampoTexto = styled.TextInput`
-    background-color: #fff;
-    font-size: 18px;
-    padding: 20px;
-`
+
 const ContainerBotoes = styled.View`
     margin-top: 65px;
     gap: 20px;
