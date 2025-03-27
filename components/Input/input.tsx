@@ -1,18 +1,16 @@
 import { TextInputProps } from "react-native";
-import { Input } from "./style";
-import { useState } from "react";
+import { CampoTexto } from "./style";
 
-type MeuCampoDeTexto = TextInputProps & {
-    hasError: boolean;
+type InputTextoProps = TextInputProps & {
+    erro : boolean;
 }
 
-export default function CampoTexto({ hasError ,...rest}: MeuCampoDeTexto){
+export default function InputTexto({ erro, ...rest} : InputTextoProps){
     return(
-        <Input 
-            hasError={hasError}
+        <CampoTexto 
+            erro={erro}
             placeholderTextColor={'#6C757D'}
             {...rest}
         />
     )
 }
-

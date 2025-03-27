@@ -1,12 +1,11 @@
 import styled from "styled-components/native";
 import Title from "../components/Titulo/titulo";
 import { useEffect, useState } from "react";
-import { TextInputProps } from "react-native";
-import CampoTexto from "@/components/Input/input";
-export default function App(){
+import InputTexto from "@/components/Input/input";
+export default function App()
+{
 
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
+    const [email, setEmail] =  useState('')
 
     useEffect(()=>{
         console.log(email)
@@ -23,14 +22,15 @@ export default function App(){
             flag={false}
         />
         <ContainerCampoTexto>
-            <CampoTexto 
-                hasError={true}
+           <InputTexto 
+                erro={true}
                 placeholder="Digite seu email..."
-            />
-            <CampoTexto 
-                hasError={false}
+                onChangeText={text => setEmail(text)}
+           />
+           <InputTexto 
+                erro={false}
                 placeholder="Digite sua senha..."
-            />
+           />
         </ContainerCampoTexto>
         <ContainerBotoes>
             <Botao>
