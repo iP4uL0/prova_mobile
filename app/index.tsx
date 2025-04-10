@@ -16,29 +16,45 @@ export default function App()
 
     const [senha, setSenha] = useState('!Pass123')
     const [erroSenha, setErroSenha] = useState(false)
+
     const [senhaVisivel, setSenhaVisivel] = useState(true)
+
+    const [formularioValido, setFormularioValido] = useState(true)
 
     useEffect(()=>{
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        if(emailRegex.test(email))
+
+        if(email === 'exemplo@exemplo.com')
+        {
+            setFormularioValido(true)
+        }
+        else if(emailRegex.test(email))
         {
             setErroEmail(false)
+            setFormularioValido(false)
         }
         else{
             setErroEmail(true)
+            setFormularioValido(true)
         }
 
     },[email])
 
     useEffect(()=>{
         const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
-        if(passwordRegex.test(senha)){
+        
+        if(senha == '!Pass123')
+        {
+            setFormularioValido(true)
+        }
+        else if(passwordRegex.test(senha)){
             setErroSenha(false)
+            setFormularioValido(false)
         }
         else
         {
             setErroSenha(true)
+            setFormularioValido(true)
         }
     }, [senha])
 
@@ -85,8 +101,11 @@ export default function App()
                 </View>
         </ContainerCampoTexto>
         <ContainerBotoes>
-            <Botao 
-                onPress={(()=> console.log('Cliking here'))}
+            <Botao
+                disabled={formularioValido}
+                onPress={()=>{
+                    console.log('ola')
+                }}
             >
                 <TextoBotao>Entrar</TextoBotao>
             </Botao>
