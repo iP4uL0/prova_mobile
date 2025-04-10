@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import InputTexto from "@/components/Input/input";
 import Entypo from '@expo/vector-icons/Entypo';
 import { Pressable, View } from "react-native";
+import { api } from "@/utils/api";
 
 type ContainerInput = View & {
     error : boolean
@@ -58,6 +59,21 @@ export default function App()
         }
     }, [senha])
 
+    async function Logar() {
+        try{
+            const resposta = await api.post('/login',{
+               email: email,
+               senha: senha
+            })
+
+            console.log(resposta.data)
+        }
+        catch(error){
+            console.log(error)
+        }
+    }
+    
+    
     return(
      <Tela>
         <Title 
@@ -104,7 +120,7 @@ export default function App()
             <Botao
                 disabled={formularioValido}
                 onPress={()=>{
-                    console.log('ola')
+                    Logar()
                 }}
             >
                 <TextoBotao>Entrar</TextoBotao>
