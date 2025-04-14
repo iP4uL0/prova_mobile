@@ -13,7 +13,7 @@ type ContainerInput = View & {
 export default function App()
 {
     const [email, setEmail] =  useState('exemplo@exemplo.com')
-    const [erroEmail, setErroEmail] = useState<boolean>(false)
+    const [erroEmail, setErroEmail] = useState(false)
 
     const [senha, setSenha] = useState('!Pass123')
     const [erroSenha, setErroSenha] = useState(false)
