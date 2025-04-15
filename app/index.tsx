@@ -5,6 +5,7 @@ import InputTexto from "@/components/Input/input";
 import Entypo from '@expo/vector-icons/Entypo';
 import { Pressable, View } from "react-native";
 import { api } from "@/utils/api";
+import { Link, useRouter } from "expo-router";
 
 type ContainerInput = View & {
     error : boolean
@@ -21,6 +22,8 @@ export default function App()
     const [senhaVisivel, setSenhaVisivel] = useState(true)
 
     const [formularioValido, setFormularioValido] = useState(true)
+
+    const router = useRouter()
 
     useEffect(()=>{
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -66,15 +69,14 @@ export default function App()
                senha: senha
             })
 
-            console.log(resposta.data)
+            router.push('/(home)/home')
         }
         catch(error){
             console.log(error)
         }
     }
-    
-    
-    return(
+     
+    return( 
      <Tela>
         <Title 
             texto={"Entrar"} 
@@ -117,14 +119,14 @@ export default function App()
                 </View>
         </ContainerCampoTexto>
         <ContainerBotoes>
-            <Botao
-                disabled={formularioValido}
-                onPress={()=>{
-                    Logar()
-                }}
-            >
-                <TextoBotao>Entrar</TextoBotao>
-            </Botao>
+                <Botao
+                    disabled={formularioValido}
+                    onPress={()=>{
+                        Logar()
+                    }}
+                >
+                    <TextoBotao>Entrar</TextoBotao>
+                </Botao>
             <Links>Cadastre-se</Links>
             <Links>Esqueci a senha</Links>
         </ContainerBotoes>
@@ -166,11 +168,13 @@ const Botao = styled.Pressable`
     padding: 20px;
     border-radius: 6px;
 `
+
 const TextoBotao = styled.Text`
     text-align: center;
     font-size: 24px;
     color: #fff;
 `
+
 const Links = styled.Text`
     text-align: center;
     color: #fff;

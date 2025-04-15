@@ -1,26 +1,18 @@
 {
   "expo": {
-<<<<<<< HEAD
     "name": "router_app",
     "slug": "router_app",
-=======
-    "name": "my-app",
-    "slug": "my-app",
->>>>>>> e61fd9325315baf3982899bfc6e3784449a4cf52
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-<<<<<<< HEAD
     "splash": {
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-=======
->>>>>>> e61fd9325315baf3982899bfc6e3784449a4cf52
     "ios": {
       "supportsTablet": true
     },
@@ -36,20 +28,7 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-<<<<<<< HEAD
       "expo-router"
-=======
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
->>>>>>> e61fd9325315baf3982899bfc6e3784449a4cf52
     ],
     "experiments": {
       "typedRoutes": true
