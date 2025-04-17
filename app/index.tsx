@@ -3,9 +3,10 @@ import Title from "../components/Titulo/titulo";
 import { useEffect, useState } from "react";
 import InputTexto from "@/components/Input/input";
 import Entypo from '@expo/vector-icons/Entypo';
-import { Pressable, View } from "react-native";
+import { Platform, Pressable, View } from "react-native";
 import { api } from "@/utils/api";
 import { Link, useRouter } from "expo-router";
+import { Alert } from "react-native";
 
 type ContainerInput = View & {
     error : boolean
@@ -20,6 +21,8 @@ export default function App()
     const [erroSenha, setErroSenha] = useState(false)
 
     const [senhaVisivel, setSenhaVisivel] = useState(true)
+
+    const [invalidLogin, setInvalidLogin] = useState(false)
 
     const [formularioValido, setFormularioValido] = useState(true)
 
@@ -69,10 +72,17 @@ export default function App()
                senha: senha
             })
 
-            router.push('/(home)/home')
+            //router.push('/(home)/home')
         }
         catch(error){
             console.log(error)
+            if(Platform.OS == 'web'){
+                alert('Usuario ou senha incorretos!')
+            }
+            else{
+                Alert.alert('Ops...','Usuario ou senha incorretos!')
+            }
+            // setInvalidLogin(true)
         }
     }
      
@@ -118,6 +128,10 @@ export default function App()
                     }
                 </View>
         </ContainerCampoTexto>
+        {
+            invalidLogin ? <TextErrorHint>Usuario ou senha incorretos!</TextErrorHint>
+            : null
+        }
         <ContainerBotoes>
                 <Botao
                     disabled={formularioValido}
