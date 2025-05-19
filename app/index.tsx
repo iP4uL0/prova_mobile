@@ -5,7 +5,7 @@ import InputTexto from "@/components/Input/input";
 import Entypo from '@expo/vector-icons/Entypo';
 import { Platform, Pressable, View } from "react-native";
 import { api } from "@/utils/api";
-import { Link, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import { Alert } from "react-native";
 
 type ContainerInput = View & {
@@ -72,10 +72,9 @@ export default function App()
                senha: senha
             })
 
-            //router.push('/(home)/home')
+            router.push('/(home)/home')
         }
         catch(error){
-            console.log(error)
             if(Platform.OS == 'web'){
                 alert('Usuario ou senha incorretos!')
             }

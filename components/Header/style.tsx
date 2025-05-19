@@ -1,19 +1,18 @@
+import { View } from "react-native"
 import styled from "styled-components/native"
 
-export const Container = styled.View`
+type ContainerStyled = View & {
+    canBack : boolean
+}
+
+export const Container = styled.View<ContainerStyled>`
     height: 80px;
-    width: 100%;
     padding: 10px;
     background-color: #1a212e;
     flex-direction: row;
+    width: 100%;
     align-items: center;
-`
-export const ContainerBackIcon = styled.View`
-    flex: 0.9;
-`
-
-export const ContainerLogo = styled.View`
-    flex: 1.1;
+    justify-content: ${({canBack} : {canBack: boolean}) => canBack ? 'space-between' : 'center'};
 `
 
 export const Imagem = styled.Image`
