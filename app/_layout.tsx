@@ -23,7 +23,7 @@ export default function RootLayout(){
             screenOptions={{ header: Header}}
         >
             <Stack.Screen options={{ headerShown: false }} name="index" />
-            <Stack.Screen name="(home)/home" />
+            <Stack.Screen name="(tabs)" />
         </Stack>
     )
 }

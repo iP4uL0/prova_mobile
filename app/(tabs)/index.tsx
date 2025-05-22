@@ -25,12 +25,12 @@ export default function Home(){
             <FlatList
                 data={images}
                 columnWrapperStyle={{justifyContent: "space-around"}}
-                numColumns={2}
+                numColumns={3}
                 showsVerticalScrollIndicator={false}
                 ListEmptyComponent={<Text>Nenhuma imagem cadastrada</Text>}
-                ItemSeparatorComponent={()=> (
-                    <View style={{height: 10, width: 10}}></View>
-                )}
+                // ItemSeparatorComponent={()=> (
+                //     <View style={{height: 10, width: 10}}></View>
+                // )}
                 renderItem={({item}) => {
                     const base64String = Buffer.from(item.data).toString('base64');
                     const imageUri = `data:image/png;base64,${base64String}`;

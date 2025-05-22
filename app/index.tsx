@@ -72,7 +72,7 @@ export default function App()
                senha: senha
             })
 
-            router.push('/(home)/home')
+            router.replace('/(tabs)')
         }
         catch(error){
             if(Platform.OS == 'web'){

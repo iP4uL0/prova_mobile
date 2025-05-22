@@ -12,7 +12,8 @@ export const Container = styled.View<ContainerStyled>`
     flex-direction: row;
     width: 100%;
     align-items: center;
-    justify-content: ${({canBack} : {canBack: boolean}) => canBack ? 'space-between' : 'center'};
+    justify-content: ${({canBack} : {canBack: boolean}) => 
+    canBack ? 'space-between' : 'center'};
 `
 
 export const Imagem = styled.Image`
