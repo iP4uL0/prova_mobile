@@ -19,7 +19,7 @@ export default function TabLayout(){
                 options={{
                     headerShown: false,
                     tabBarIcon: ({ color }) => 
-                        <AntDesign name="pluscircle" size={28} color="black" />,                
+                        <AntDesign name="pluscircle" size={28} color={color} />,                
                 }}
             />
             <Tabs.Screen 
@@ -27,7 +27,7 @@ export default function TabLayout(){
                 options={{
                     headerShown: false,
                     tabBarIcon: ({ color }) => 
-                    <AntDesign name="user" size={24} color="black" />,            
+                    <AntDesign name="user" size={24} color={color} />,            
                 }}
             />
         </Tabs>

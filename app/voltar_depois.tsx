@@ -3,12 +3,12 @@ import Title from "../components/Titulo/titulo";
 import { useEffect, useState } from "react";
 import InputTexto from "@/components/Input/input";
 import Entypo from '@expo/vector-icons/Entypo';
-import { Platform, Pressable, View } from "react-native";
+import { Platform, Pressable, View, ViewProps } from "react-native";
 import { api } from "@/utils/api";
 import { useRouter } from "expo-router";
 import { Alert } from "react-native";
 
-type ContainerInput = View & {
+type ContainerInput = ViewProps & {
     error : boolean
 }
 
