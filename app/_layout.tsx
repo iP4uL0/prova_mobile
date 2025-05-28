@@ -1,5 +1,7 @@
 import Header from "@/components/Header/header";
 import { Stack } from "expo-router";
+import { StatusBar } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 //  ----------------------- LEIA, IMPORTANTE ----------------------------------
 /*
@@ -17,13 +19,20 @@ import { Stack } from "expo-router";
     na Stack.Screen que voce deseja.
     Refêrencia: https://docs.expo.dev/router/advanced/stack/
 */
+
 export default function RootLayout(){
     return(
-        <Stack
-            screenOptions={{ header: Header}}
-        >
-            {/* <Stack.Screen options={{ headerShown: false }} name="index" /> */}
-            <Stack.Screen name="(tabs)" />
-        </Stack>
+        <SafeAreaProvider>
+            <StatusBar 
+                barStyle={"light-content"}
+                backgroundColor={"transparent"}
+                translucent
+            />
+            <Stack screenOptions={{ header: Header}} >
+                <Stack.Screen name="index"  options={{headerShown: false}}/>
+                <Stack.Screen name="(tabs)" />
+            </Stack>
+        </SafeAreaProvider>
     )
 }
+

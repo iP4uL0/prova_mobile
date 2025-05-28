@@ -1,13 +1,11 @@
-import { View } from "react-native"
+import { View, ViewProps } from "react-native"
 import styled from "styled-components/native"
 
-type ContainerStyled = View & {
+type ContainerStyled = ViewProps & {
     canBack : boolean
 }
 
 export const Container = styled.View<ContainerStyled>`
-    height: 80px;
-    padding: 10px;
     background-color: #1a212e;
     flex-direction: row;
     width: 100%;

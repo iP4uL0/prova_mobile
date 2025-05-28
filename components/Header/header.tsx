@@ -2,6 +2,7 @@ import Feather from '@expo/vector-icons/Feather';
 import { Container, Imagem } from './style';
 import { NativeStackHeaderProps } from "@react-navigation/native-stack"
 import { Pressable } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function Header(props: NativeStackHeaderProps){
     
@@ -14,8 +15,11 @@ export default function Header(props: NativeStackHeaderProps){
        
     const canGoBack = props.navigation.canGoBack();
 
+    const insets = useSafeAreaInsets();
+    
+    //Coloquei aqui o insets.top + 5 porque achei o icone muito proximo ao topo
     return(
-    <Container canBack={canGoBack}>
+    <Container style={{ paddingTop: insets.top + 5, paddingBottom: insets.top}} canBack={canGoBack}>
         {
             canGoBack ?
             <Pressable onPress={ () => props.navigation.goBack()}>
