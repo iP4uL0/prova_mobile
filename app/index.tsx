@@ -135,6 +135,7 @@ const Tela = styled(SafeAreaView)`
 `;
 
 const ContainerCampoTexto = styled.View`
+  margin-top: 60px ;
   gap: 25px;
 `;
 
