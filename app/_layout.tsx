@@ -29,7 +29,8 @@ export default function RootLayout(){
                 translucent
             />
             <Stack screenOptions={{ header: Header}} >
-                <Stack.Screen name="index"  options={{headerShown: false}}/>
+                <Stack.Screen name="index" options={{headerShown: false}}/>
+                <Stack.Screen name="cadastro" options={{headerShown: false}}/>
                 <Stack.Screen name="(tabs)" />
             </Stack>
         </SafeAreaProvider>

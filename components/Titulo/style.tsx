@@ -11,5 +11,4 @@ export const Subtitulo = styled.Text`
     font-weight: lighter;
     color: #fff;
     margin-top: 10px;
-    margin-bottom: 80px;
 `

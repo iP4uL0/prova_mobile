@@ -21,11 +21,16 @@ type ContainerInput = {
   error: boolean;
 };
 
-export default function App() {
+export default function Cadastro() {
   const [email, setEmail] = useState("exemplo@exemplo.com");
   const [erroEmail, setErroEmail] = useState(false);
+
   const [senha, setSenha] = useState("!Pass123");
   const [erroSenha, setErroSenha] = useState(false);
+
+  const [confSenha, setConfSenha] = useState("!Pass123");
+  const [erroConfSenha, setConfErroSenha] = useState(false);
+
   const [senhaVisivel, setSenhaVisivel] = useState(true);
   const [invalidLogin, setInvalidLogin] = useState(false);
   const [formularioValido, setFormularioValido] = useState(true);
@@ -45,27 +50,41 @@ export default function App() {
 
   useEffect(() => {
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
-    if (senha == "!Pass123") setFormularioValido(true);
-    else if (passwordRegex.test(senha)) {
-      setErroSenha(false);
-      setFormularioValido(false);
+    if (senha == "!Pass123") 
+        setFormularioValido(true);
+    else if (passwordRegex.test(senha)) 
+    {
+        setErroSenha(false);
     } else {
-      setErroSenha(true);
-      setFormularioValido(true);
+        setErroSenha(true);
+        setFormularioValido(true);
     }
+
   }, [senha]);
 
-  async function Logar() {
+  useEffect(() => {
+        if(senha === confSenha)
+        {
+            setConfErroSenha(false)
+            setFormularioValido(false)
+        }
+        else{
+            setConfErroSenha(true)
+            setFormularioValido(true)
+        }
+  }, [confSenha])
+
+  async function Cadastrar() {
     try {
-      await api.post("/login", {
+      await api.post("/usuario", {
         email: email,
         senha: senha,
       });
 
-      router.replace("/(tabs)/galeria");
+      router.replace("/");
     } catch (error) {
-      if (Platform.OS == "web") alert("Usuario ou senha incorretos!");
-      else Alert.alert("Ops...", "Usuario ou senha incorretos!");
+      if (Platform.OS == "web") alert("Usuario ja cadastrado");
+      else Alert.alert("Ops...", "Usuario ja cadastrado");
     }
   }
 
@@ -79,8 +98,8 @@ export default function App() {
           <ScrollView
             contentContainerStyle={{ flexGrow: 1}}
             keyboardShouldPersistTaps="handled">
-              <Title texto={"Entrar"} flag={true} />
-              <Title texto={"Bem vindo ao app"} flag={false} />
+              <Title texto={"Cadastre-se"} flag={true} />
+              <Title texto={"Junte-se a nós"} flag={false} />
               <ContainerCampoTexto >
                 <View>
                   <ContainerTextInput error={erroEmail}>
@@ -110,18 +129,31 @@ export default function App() {
                   </ContainerTextInput>
                   {erroSenha && <TextErrorHint>Senha inválida</TextErrorHint>}
                 </View>
+                <View>
+                  <ContainerTextInput error={erroConfSenha}>
+                    <InputTexto
+                      placeholder="Confirme a senha..."
+                      onChangeText={(text) => setConfSenha(text)}
+                      secureTextEntry={senhaVisivel}
+                    />
+                    <Pressable onPress={() => setSenhaVisivel(!senhaVisivel)}>
+                      <StyledIcon
+                        name={senhaVisivel ? "eye" : "eye-with-line"}
+                        size={24}
+                        color="black"
+                      />
+                    </Pressable>
+                  </ContainerTextInput>
+                  {erroConfSenha && <TextErrorHint>Senha diferentes!</TextErrorHint>}
+                </View>
               </ContainerCampoTexto>
               {invalidLogin && (
                 <TextErrorHint>Usuário ou senha incorretos!</TextErrorHint>
               )}
               <ContainerBotoes>
-                <Botao disabled={formularioValido} onPress={Logar}>
-                  <TextoBotao>Entrar</TextoBotao>
+                <Botao disabled={formularioValido} onPress={Cadastrar}>
+                  <TextoBotao>Salvar</TextoBotao>
                 </Botao>
-                <Pressable onPress={()=> router.push('/cadastro')}>
-                  <Links>Cadastre-se</Links>
-                </Pressable>
-                <Links>Esqueci a senha</Links>
               </ContainerBotoes>
           </ScrollView>
         </TouchableWithoutFeedback>
@@ -161,7 +193,7 @@ const StyledIcon = styled(Entypo)`
 `;
 
 const Botao = styled.Pressable`
-  background-color: #2193f3;
+  background-color: #008000;
   padding: 20px;
   border-radius: 6px;
 `;

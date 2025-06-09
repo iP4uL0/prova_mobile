@@ -19,7 +19,10 @@ export default function Header(props: NativeStackHeaderProps){
     
     //Coloquei aqui o insets.top + 5 porque achei o icone muito proximo ao topo
     return(
-    <Container style={{ paddingTop: insets.top + 5, paddingBottom: insets.top}} canBack={canGoBack}>
+    <Container 
+        style={{ paddingTop: insets.top + 5, paddingBottom: 10, paddingHorizontal: 20}} 
+        canBack={canGoBack}
+    >
         {
             canGoBack ?
             <Pressable onPress={ () => props.navigation.goBack()}>
