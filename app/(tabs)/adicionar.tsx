@@ -8,6 +8,7 @@ import {
   import { Button, Pressable, StyleSheet, Text, View } from "react-native";
   import { Image } from "expo-image";
   import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import React from "react";
   
     /* 
         Bibliotecas usadas: 

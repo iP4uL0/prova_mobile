@@ -16,6 +16,7 @@ import { api } from "@/utils/api";
 import { useRouter } from "expo-router";
 import { Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import React from "react";
 
 type ContainerInput = {
   error: boolean;
@@ -94,7 +95,7 @@ export default function Cadastro() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={{ flex: 1 }}
         keyboardVerticalOffset={60}>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <TouchableWithoutFeedback>
           <ScrollView
             contentContainerStyle={{ flexGrow: 1}}
             keyboardShouldPersistTaps="handled">

@@ -1,5 +1,6 @@
 import { View } from "react-native"
 import { Subtitulo, Titulo } from "./style"
+import React from "react"
 
 type TitleProps = {
     texto : string,

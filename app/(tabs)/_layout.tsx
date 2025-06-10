@@ -3,6 +3,7 @@ import { Tabs } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import React from "react";
 
 export default function TabLayout(){
 

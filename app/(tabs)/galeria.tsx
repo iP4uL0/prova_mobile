@@ -5,6 +5,7 @@ import { FlatList, Image, StatusBar, Text, View } from "react-native"
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"
 import styled from "styled-components/native"
 import { Buffer } from 'buffer';
+import React from "react"
 export default function Home(){
 
     const [images, setImages] = useState<MyImages[]>([])
